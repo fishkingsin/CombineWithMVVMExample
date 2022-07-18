@@ -119,6 +119,19 @@ class MainViewModel:
         _text.map { $0 != "" }.eraseToAnyPublisher()
     }
     
+    
+    var switch2Enabled: AnyPublisher<Bool, Never> {
+        switch1Value
+            .map{ $0 == true }
+            .eraseToAnyPublisher()
+    }
+    
+    var switch3Enabled: AnyPublisher<Bool, Never> {
+        switch2Value
+            .map{ $0 == true }
+            .eraseToAnyPublisher()
+    }
+    
     var switch1Value: AnyPublisher<Bool, Never> {
         _enable1
             .combineLatest(_text.compactMap{ $0 })
@@ -130,7 +143,7 @@ class MainViewModel:
     
     var switch2Value: AnyPublisher<Bool, Never> {
         _enable2
-            .combineLatest(_enable1)
+            .combineLatest(switch1Value)
             .map {
                 $0.0 == true && $0.1 == true
             }
@@ -139,22 +152,10 @@ class MainViewModel:
     
     var switch3Value: AnyPublisher<Bool, Never> {
         _enable3
-            .combineLatest(_enable2, _enable1)
+            .combineLatest(switch2Value)
             .map {
-                $0.0 == true && $0.1 == true && $0.2 == true
+                $0.0 == true && $0.1 == true
             }
-            .eraseToAnyPublisher()
-    }
-    
-    var switch2Enabled: AnyPublisher<Bool, Never> {
-        switch1Value
-            .map{ $0 == true }
-            .eraseToAnyPublisher()
-    }
-    
-    var switch3Enabled: AnyPublisher<Bool, Never> {
-        switch2Value
-            .map{ $0 == true }
             .eraseToAnyPublisher()
     }
         
