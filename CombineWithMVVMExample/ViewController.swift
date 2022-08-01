@@ -16,6 +16,7 @@ class ViewController: UIViewController {
         bottomLine.frame = CGRect(x: 0.0, y: view.frame.height - 1, width: view.frame.width, height: 1.0)
         bottomLine.backgroundColor = UIColor.black.cgColor
         view.borderStyle = .none
+        view.keyboardType = .decimalPad
         view.backgroundColor = .darkGray
         view.layer.addSublayer(bottomLine)
         view.textColor = .white
@@ -167,7 +168,7 @@ class ViewController: UIViewController {
         }.store(in: &cancellable)
         
         self.viewModel.inputs.setText(text: textField.text ?? "")
-        
+        textField.delegate = viewModel as! UITextFieldDelegate
         textField.publisher(for: .editingChanged)
             .map{ view in (view as? UITextField) }
             .compactMap{ $0 }

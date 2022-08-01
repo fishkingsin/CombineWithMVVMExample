@@ -9,9 +9,9 @@ import XCTest
 @testable import CombineWithMVVMExample
 
 class CombineWithMVVMExampleTests: XCTestCase {
-
+    var sut: MainViewModelType!
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        sut = MainViewModel()
     }
 
     override func tearDownWithError() throws {
@@ -19,18 +19,31 @@ class CombineWithMVVMExampleTests: XCTestCase {
     }
 
     func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+        sut.inputs.viewDidLoad()
+        sut.inputs.setText(text: "Hello")
+        
+        var publisher = sut.outputs.switch1Enabled
+            .collect(2)
+            .first()
+        sut.inputs.setText(text: "Hello")
+//        var switch2Enabled = try awaitPublisher(sut.outputs.switch2Enabled)
+//        var switch3Enabled = try awaitPublisher(sut.outputs.switch3Enabled)
+//        XCTAssertFalse(switch1Enabled.count())
+//        XCTAssertFalse(switch2Enabled)
+//        XCTAssertFalse(switch3Enabled)
+        
+        sut.inputs.enable1(value: true)
+        
+        var switch1Enabled = try awaitPublisher(publisher)
+//        switch2Enabled = try awaitPublisher(sut.outputs.switch2Enabled)
+//        switch3Enabled = try awaitPublisher(sut.outputs.switch3Enabled)
+        print("switch1Enabled \(switch1Enabled)")
+//        XCTAssertTrue(switch1Enabled)
+//        XCTAssertFalse(switch2Enabled)
+//        XCTAssertFalse(switch3Enabled)
+        
+        
+        
     }
 
 }

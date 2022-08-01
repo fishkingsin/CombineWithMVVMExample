@@ -9,6 +9,7 @@
 import Foundation
 import Combine
 import CombineExt
+import UIKit
 
 func ignoreNil<T>(_ value: T?) -> AnyPublisher<T, Never> {
     value.map { Just($0).eraseToAnyPublisher()} ?? Empty().eraseToAnyPublisher()
@@ -58,6 +59,7 @@ public protocol MainViewModelType: AnyObject {
 }
 
 class MainViewModel:
+    NSObject,
     MainViewModelType,
     MainViewModelInputs,
     MainViewModelOutputs {
@@ -158,7 +160,7 @@ class MainViewModel:
             }
             .eraseToAnyPublisher()
     }
-        
+    
     var enableButton: AnyPublisher<Bool, Never> {
         _text
             .combineLatest(
@@ -212,8 +214,8 @@ class MainViewModel:
     
     /* initialize Some Usecase or AppState */
     
-    init(/*Any dependency*/) {
-
+    override init(/*Any dependency*/) {
+        
     }
     
     func viewDidLoad() { }
@@ -227,6 +229,19 @@ class MainViewModel:
     func viewWillDisappear() { }
     
     // extra Business logic
-    
+    var cursorPosition: Int? = 0
 }
 
+
+
+extension MainViewModel: TextFieldWithDecimalLimitable {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if let text = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) {
+            
+            cursorPosition = getCursorPosition(textField, isAppend: string.count > 0)
+            return processTextInputChange(text: text, input: string, cursorPosition: cursorPosition)
+        }
+        return false
+    }
+    
+}
