@@ -63,6 +63,9 @@ class MainViewModel:
     MainViewModelType,
     MainViewModelInputs,
     MainViewModelOutputs {
+    
+    var textFieldWithDecimalLimitable: TextFieldWithDecimalLimitable!
+    
     func setText(text: String) {
         _text.accept(text)
     }
@@ -215,7 +218,7 @@ class MainViewModel:
     /* initialize Some Usecase or AppState */
     
     override init(/*Any dependency*/) {
-        
+        textFieldWithDecimalLimitable = DefaultTextFieldWithDecimalLimitable()
     }
     
     func viewDidLoad() { }
@@ -234,14 +237,9 @@ class MainViewModel:
 
 
 
-extension MainViewModel: TextFieldWithDecimalLimitable {
+extension MainViewModel: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if let text = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) {
-            
-            cursorPosition = getCursorPosition(textField, isAppend: string.count > 0)
-            return processTextInputChange(text: text, input: string, cursorPosition: cursorPosition)
-        }
-        return false
+        return textFieldWithDecimalLimitable.textField(textField, shouldChangeCharactersIn: range, replacementString: string)
     }
     
 }

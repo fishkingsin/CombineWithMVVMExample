@@ -16,6 +16,7 @@
 		1A78C1D0288528D300D002BA /* UserGroupMemberPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A78C1CF288528D300D002BA /* UserGroupMemberPresentable.swift */; };
 		1A97BADD28859D2B009F8B2E /* UIControlSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A97BADC28859D2B009F8B2E /* UIControlSubscription.swift */; };
 		1AA3E6602897C0750051195C /* TextFieldWithDecimalLimitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA3E65F2897C0750051195C /* TextFieldWithDecimalLimitable.swift */; };
+		1AA3E6622897D19D0051195C /* DefaultTextFieldWithDecimalLimitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA3E6612897D19D0051195C /* DefaultTextFieldWithDecimalLimitable.swift */; };
 		1AE5904F2885137D00223B42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE5904E2885137D00223B42 /* AppDelegate.swift */; };
 		1AE590512885137D00223B42 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE590502885137D00223B42 /* SceneDelegate.swift */; };
 		1AE590532885137D00223B42 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE590522885137D00223B42 /* ViewController.swift */; };
@@ -55,6 +56,7 @@
 		1A78C1CF288528D300D002BA /* UserGroupMemberPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGroupMemberPresentable.swift; sourceTree = "<group>"; };
 		1A97BADC28859D2B009F8B2E /* UIControlSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIControlSubscription.swift; sourceTree = "<group>"; };
 		1AA3E65F2897C0750051195C /* TextFieldWithDecimalLimitable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithDecimalLimitable.swift; sourceTree = "<group>"; };
+		1AA3E6612897D19D0051195C /* DefaultTextFieldWithDecimalLimitable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTextFieldWithDecimalLimitable.swift; sourceTree = "<group>"; };
 		1AE5904B2885137D00223B42 /* CombineWithMVVMExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CombineWithMVVMExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AE5904E2885137D00223B42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1AE590502885137D00223B42 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				1AE590592885138100223B42 /* LaunchScreen.storyboard */,
 				1AE5905C2885138100223B42 /* Info.plist */,
 				1A97BADC28859D2B009F8B2E /* UIControlSubscription.swift */,
+				1AA3E6612897D19D0051195C /* DefaultTextFieldWithDecimalLimitable.swift */,
 			);
 			path = CombineWithMVVMExample;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AA3E6602897C0750051195C /* TextFieldWithDecimalLimitable.swift in Sources */,
+				1AA3E6622897D19D0051195C /* DefaultTextFieldWithDecimalLimitable.swift in Sources */,
 				1A78C1D0288528D300D002BA /* UserGroupMemberPresentable.swift in Sources */,
 				1A78C1CC288528A700D002BA /* UserGroupHeaderPresentable.swift in Sources */,
 				1AE59085288513D500223B42 /* MainViewModel.swift in Sources */,
