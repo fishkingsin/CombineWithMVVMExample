@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import UIKit
 // default behaviour
 class DefaultTextFieldWithDecimalLimitable: TextFieldWithDecimalLimitable {
     var cursorPosition: Int? = 0
