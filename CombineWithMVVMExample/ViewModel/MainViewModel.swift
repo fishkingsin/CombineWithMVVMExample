@@ -15,7 +15,7 @@ func ignoreNil<T>(_ value: T?) -> AnyPublisher<T, Never> {
     value.map { Just($0).eraseToAnyPublisher()} ?? Empty().eraseToAnyPublisher()
 }
 
-public protocol MainViewModelInputs: AnyObject {
+public protocol MainViewModelInputs {
     func viewDidLoad()
     func viewDidAppear()
     func viewDidDisappear()
@@ -31,16 +31,21 @@ public protocol MainViewModelInputs: AnyObject {
     func onButtonClick()
 }
 
-public protocol MainViewModelOutputs: AnyObject {
-    var switch1Enabled: AnyPublisher<Bool, Never> { get }
-    var switch2Enabled: AnyPublisher<Bool, Never> { get }
-    var switch3Enabled: AnyPublisher<Bool, Never> { get }
+public protocol MainViewModelOutputs {
+    var switch1EnabledPublisher: AnyPublisher<Bool, Never> { get }
+    var switch2EnabledPublisher: AnyPublisher<Bool, Never> { get }
+    var switch3EnabledPublisher: AnyPublisher<Bool, Never> { get }
     
-    var switch1Value: AnyPublisher<Bool, Never> { get }
-    var switch2Value: AnyPublisher<Bool, Never> { get }
-    var switch3Value: AnyPublisher<Bool, Never> { get }
+    var switch1Enabled: Bool { get }
+    var switch2Enabled: Bool { get }
+    var switch3Enabled: Bool { get }
+    
+    var switch1ValuePublisher: AnyPublisher<Bool, Never> { get }
+    var switch2ValuePublisher: AnyPublisher<Bool, Never> { get }
+    var switch3ValuePublisher: AnyPublisher<Bool, Never> { get }
     var enableButton: AnyPublisher<Bool, Never> { get}
-    var text: AnyPublisher<String, Never> { get}
+    var text: String { get set }
+    var textPublisher: AnyPublisher<String, Never> { get}
     var options1: AnyPublisher<[String], Never> { get}
     var selectedOption: AnyPublisher<String, Never> { get}
     var options2: AnyPublisher<[UserGroupMemberPresentable], Never> { get}
@@ -53,21 +58,76 @@ public protocol MainViewModelOutputs: AnyObject {
     var bottomsheetOptions: AnyPublisher<([String], String?), Never> { get}
 }
 
-public protocol MainViewModelType: AnyObject {
+public protocol MainViewModelType: ObservableObject {
     var inputs: MainViewModelInputs { get }
     var outputs: MainViewModelOutputs { get }
 }
 
-class MainViewModel:
-    NSObject,
+class MainViewModel<TextFieldLimitable>:
     MainViewModelType,
     MainViewModelInputs,
-    MainViewModelOutputs {
+    MainViewModelOutputs where TextFieldLimitable: TextFieldWithDecimalLimitable {
     
-    var textFieldWithDecimalLimitable: TextFieldWithDecimalLimitable!
+    
+    
+    @Published var switch1Enabled: Bool = false
+    
+    @Published var switch2Enabled: Bool = false
+    
+    @Published var switch3Enabled: Bool = false
+    
+    @Published var switch1Value: Bool = false
+    
+    @Published var switch2Value: Bool = false
+    
+    @Published var switch3Value: Bool = false
+    
+    
+    var textPublisher: AnyPublisher<String, Never> { $text.flatMap(ignoreNil).eraseToAnyPublisher() }
+    @Published var text: String = ""
+    
+    var options1: AnyPublisher<[String], Never> { _options1.flatMap(ignoreNil).eraseToAnyPublisher() }
+    private var _options1: CurrentValueRelay<[String]?> = CurrentValueRelay(nil)
+    
+    var selectedOption: AnyPublisher<String, Never> { _selectedOption.flatMap(ignoreNil).eraseToAnyPublisher() }
+    private var _selectedOption: CurrentValueRelay<String?> = CurrentValueRelay(nil)
+    
+    var options2: AnyPublisher<[UserGroupMemberPresentable], Never> { _options2.flatMap(ignoreNil).eraseToAnyPublisher() }
+    private var _options2: CurrentValueRelay<[UserGroupMemberPresentable]?> = CurrentValueRelay(nil)
+    
+    var didClickButton: AnyPublisher<Void, Never> { _didClickButton.flatMap(ignoreNil).eraseToAnyPublisher() }
+    private var _didClickButton: PassthroughRelay<Void?> = PassthroughRelay()
+    
+    var progressBarVisibility: AnyPublisher<Int, Never> { _progressBarVisibility.flatMap(ignoreNil).eraseToAnyPublisher() }
+    private var _progressBarVisibility: CurrentValueRelay<Int?> = CurrentValueRelay(nil)
+    
+    var showBottomSheet: AnyPublisher<String, Never> { _showBottomSheet.flatMap(ignoreNil).eraseToAnyPublisher() }
+    private var _showBottomSheet: CurrentValueRelay<String?> = CurrentValueRelay(nil)
+    
+    var enable1: AnyPublisher<Bool, Never> { _enable1.flatMap(ignoreNil).eraseToAnyPublisher() }
+    private var _enable1: CurrentValueRelay<Bool?> = CurrentValueRelay(nil)
+    
+    var enable2: AnyPublisher<Bool, Never> { _enable2.flatMap(ignoreNil).eraseToAnyPublisher() }
+    private var _enable2: CurrentValueRelay<Bool?> = CurrentValueRelay(nil)
+    
+    var enable3: AnyPublisher<Bool, Never> { _enable3.flatMap(ignoreNil).eraseToAnyPublisher() }
+    private var _enable3: CurrentValueRelay<Bool?> = CurrentValueRelay(nil)
+    
+    var bottomsheetOptions: AnyPublisher<([String], String?), Never> { _bottomsheetOptions.flatMap(ignoreNil).eraseToAnyPublisher() }
+    private var _bottomsheetOptions: CurrentValueRelay<([String], String?)?> = CurrentValueRelay(nil)
+    
+    
+    var inputs: MainViewModelInputs { self }
+    var outputs: MainViewModelOutputs { self }
+    
+    
+    var textFieldWithDecimalLimitable: TextFieldLimitable
     
     func setText(text: String) {
-        _text.accept(text)
+        if text.count > 10 {
+            // constrain to 10
+            self.text = String(text.prefix(10))
+        }
     }
     
     func setSelectedOption(option: String) {
@@ -120,44 +180,44 @@ class MainViewModel:
         
     }
     
-    var switch1Enabled: AnyPublisher<Bool, Never> {
-        _text.map { $0 != "" }.eraseToAnyPublisher()
+   
+    
+    var switch1EnabledPublisher: AnyPublisher<Bool, Never> {
+        $text.map { $0 != "" }.eraseToAnyPublisher()
     }
     
     
-    var switch2Enabled: AnyPublisher<Bool, Never> {
-        switch1Value
+    var switch2EnabledPublisher: AnyPublisher<Bool, Never> {
+        $switch1Value.eraseToAnyPublisher()
+    }
+    
+    var switch3EnabledPublisher: AnyPublisher<Bool, Never> {
+        $switch2Value
             .map{ $0 == true }
             .eraseToAnyPublisher()
     }
     
-    var switch3Enabled: AnyPublisher<Bool, Never> {
-        switch2Value
-            .map{ $0 == true }
-            .eraseToAnyPublisher()
-    }
-    
-    var switch1Value: AnyPublisher<Bool, Never> {
+    var switch1ValuePublisher: AnyPublisher<Bool, Never> {
         _enable1
-            .combineLatest(_text.compactMap{ $0 })
+            .combineLatest($text.compactMap{ $0 })
             .map {
                 $0.0 == true && $0.1 != ""
             }
             .eraseToAnyPublisher()
     }
     
-    var switch2Value: AnyPublisher<Bool, Never> {
+    var switch2ValuePublisher: AnyPublisher<Bool, Never> {
         _enable2
-            .combineLatest(switch1Value)
+            .combineLatest($switch1Value)
             .map {
                 $0.0 == true && $0.1 == true
             }
             .eraseToAnyPublisher()
     }
     
-    var switch3Value: AnyPublisher<Bool, Never> {
+    var switch3ValuePublisher: AnyPublisher<Bool, Never> {
         _enable3
-            .combineLatest(switch2Value)
+            .combineLatest($switch2Value)
             .map {
                 $0.0 == true && $0.1 == true
             }
@@ -165,7 +225,7 @@ class MainViewModel:
     }
     
     var enableButton: AnyPublisher<Bool, Never> {
-        _text
+        $text
             .combineLatest(
                 _enable1,
                 _enable2,
@@ -177,48 +237,11 @@ class MainViewModel:
             }
             .eraseToAnyPublisher()
     }
-    
-    var text: AnyPublisher<String, Never> { _text.flatMap(ignoreNil).eraseToAnyPublisher() }
-    private var _text: CurrentValueRelay<String?> = CurrentValueRelay(nil)
-    
-    var options1: AnyPublisher<[String], Never> { _options1.flatMap(ignoreNil).eraseToAnyPublisher() }
-    private var _options1: CurrentValueRelay<[String]?> = CurrentValueRelay(nil)
-    
-    var selectedOption: AnyPublisher<String, Never> { _selectedOption.flatMap(ignoreNil).eraseToAnyPublisher() }
-    private var _selectedOption: CurrentValueRelay<String?> = CurrentValueRelay(nil)
-    
-    var options2: AnyPublisher<[UserGroupMemberPresentable], Never> { _options2.flatMap(ignoreNil).eraseToAnyPublisher() }
-    private var _options2: CurrentValueRelay<[UserGroupMemberPresentable]?> = CurrentValueRelay(nil)
-    
-    var didClickButton: AnyPublisher<Void, Never> { _didClickButton.flatMap(ignoreNil).eraseToAnyPublisher() }
-    private var _didClickButton: PassthroughRelay<Void?> = PassthroughRelay()
-    
-    var progressBarVisibility: AnyPublisher<Int, Never> { _progressBarVisibility.flatMap(ignoreNil).eraseToAnyPublisher() }
-    private var _progressBarVisibility: CurrentValueRelay<Int?> = CurrentValueRelay(nil)
-    
-    var showBottomSheet: AnyPublisher<String, Never> { _showBottomSheet.flatMap(ignoreNil).eraseToAnyPublisher() }
-    private var _showBottomSheet: CurrentValueRelay<String?> = CurrentValueRelay(nil)
-    
-    var enable1: AnyPublisher<Bool, Never> { _enable1.flatMap(ignoreNil).eraseToAnyPublisher() }
-    private var _enable1: CurrentValueRelay<Bool?> = CurrentValueRelay(nil)
-    
-    var enable2: AnyPublisher<Bool, Never> { _enable2.flatMap(ignoreNil).eraseToAnyPublisher() }
-    private var _enable2: CurrentValueRelay<Bool?> = CurrentValueRelay(nil)
-    
-    var enable3: AnyPublisher<Bool, Never> { _enable3.flatMap(ignoreNil).eraseToAnyPublisher() }
-    private var _enable3: CurrentValueRelay<Bool?> = CurrentValueRelay(nil)
-    
-    var bottomsheetOptions: AnyPublisher<([String], String?), Never> { _bottomsheetOptions.flatMap(ignoreNil).eraseToAnyPublisher() }
-    private var _bottomsheetOptions: CurrentValueRelay<([String], String?)?> = CurrentValueRelay(nil)
-    
-    
-    var inputs: MainViewModelInputs { self }
-    var outputs: MainViewModelOutputs { self }
-    
+
     /* initialize Some Usecase or AppState */
     
-    override init(/*Any dependency*/) {
-        textFieldWithDecimalLimitable = DefaultTextFieldWithDecimalLimitable()
+    init(textFieldWithDecimalLimitable: TextFieldLimitable) {
+        self.textFieldWithDecimalLimitable = textFieldWithDecimalLimitable
     }
     
     func viewDidLoad() { }
@@ -237,9 +260,9 @@ class MainViewModel:
 
 
 
-extension MainViewModel: UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        return textFieldWithDecimalLimitable.textField(textField, shouldChangeCharactersIn: range, replacementString: string)
-    }
-    
-}
+//extension MainViewModel: UITextFieldDelegate {
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        return textFieldWithDecimalLimitable.textField(textField, shouldChangeCharactersIn: range, replacementString: string)
+//    }
+//    
+//}

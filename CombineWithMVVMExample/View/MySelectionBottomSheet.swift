@@ -10,10 +10,10 @@ import PanModal
 import UIKit
 import Combine
 
-class MySelectionBottomSheet: UITableViewController {
+class MySelectionBottomSheet<ViewModel> : UITableViewController where ViewModel: MainViewModelType {
     private var cancellable = Set<AnyCancellable>()
-    weak var viewModel: MainViewModelType!
-    init(viewModel: MainViewModelType) {
+    weak var viewModel: ViewModel?
+    init(viewModel: ViewModel?) {
         super.init(nibName: nil, bundle: nil)
         self.viewModel = viewModel
     }
