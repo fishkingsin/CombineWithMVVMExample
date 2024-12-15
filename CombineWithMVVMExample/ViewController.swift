@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 class ViewController: UIViewController {
-
+    var cancellable: Set<AnyCancellable> = []
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
@@ -19,7 +19,8 @@ class ViewController: UIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        let mainViewController = MainViewController(viewModel: MainViewModel(textFieldWithDecimalLimitable: DefaultTextFieldWithDecimalLimitable()))
+        let cancellable = Set<AnyCancellable>()
+        let mainViewController = MainViewController(viewModel: MainViewModel(textFieldWithDecimalLimitable: DefaultTextFieldWithDecimalLimitable(), cancellable: cancellable), cancellable: cancellable)
         self.addChild(mainViewController)
         self.view.addSubview(mainViewController.view)
         mainViewController.view.translatesAutoresizingMaskIntoConstraints = false
@@ -34,5 +35,7 @@ class ViewController: UIViewController {
         mainViewController.didMove(toParent: self)
     }
 
+    
+    
 }
 

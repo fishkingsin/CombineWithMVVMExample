@@ -40,7 +40,10 @@ class MySelectionBottomSheet<ViewModel> : UITableViewController where ViewModel:
         super.viewDidLoad()
 
         setupTableView()
-        viewModel?.outputs.options2.sink(receiveValue: { [weak self] values in
+        viewModel?
+            .outputs
+            .options2Publisher
+            .sink(receiveValue: { [weak self] values in
             guard let self = self else { return }
             self._members = values
             self.tableView.reloadData()

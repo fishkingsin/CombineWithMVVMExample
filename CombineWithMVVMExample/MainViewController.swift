@@ -18,7 +18,6 @@ import UIKit
 import Combine
 import SwiftUI
 class MainViewController<ViewModel> : UIHostingController<MainView<ViewModel>> where ViewModel: MainViewModel<DefaultTextFieldWithDecimalLimitable>{
-
 //    var textField: UITextField = {
 //       let view = UITextField()
 //        view.placeholder = "Enter Text"
@@ -70,10 +69,11 @@ class MainViewController<ViewModel> : UIHostingController<MainView<ViewModel>> w
     
     private(set) var viewModel: ViewModel!
     
-    convenience init(viewModel: ViewModel) {
+    convenience init(viewModel: ViewModel, cancellable: Set<AnyCancellable>) {
         
         self.init(rootView: MainView(viewModel: viewModel))
         self.viewModel = viewModel
+        self.cancellable = cancellable
     }
     
     override init(rootView: MainView<ViewModel>) {
@@ -85,6 +85,9 @@ class MainViewController<ViewModel> : UIHostingController<MainView<ViewModel>> w
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        cancellable.removeAll(keepingCapacity: false)
+    }
     
     /// Combine related:  handle lifecycle of binding/subscription
     private var cancellable = Set<AnyCancellable>()
@@ -170,7 +173,7 @@ class MainViewController<ViewModel> : UIHostingController<MainView<ViewModel>> w
     private func bindViewModel() {
         cancellable.removeAll()
         self.viewModel.outputs.textPublisher.sink { [weak self] text in
-            guard let self else { return }
+            guard self != nil else { return }
             debugPrint("text update \(text)")
         }.store(in: &cancellable)
         /*
