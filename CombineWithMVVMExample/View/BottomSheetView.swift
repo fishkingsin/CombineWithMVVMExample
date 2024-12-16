@@ -28,7 +28,7 @@ struct BottomSheetView: View {
         VStack {
             Form {
                 Selectables(options, selectedIds: selectedIds) { item, isSelected in
-                    Text(item.name)
+                    BottomSheetViewListItem(item: item)
                         .font(.title)
                         .foregroundColor(isSelected.wrappedValue ? .green : .primary)
                         .onTapGesture {

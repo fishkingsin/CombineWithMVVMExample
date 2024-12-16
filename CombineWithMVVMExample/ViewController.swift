@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         let cancellable = Set<AnyCancellable>()
-        let mainViewController = MainViewController(viewModel: MainViewModel(textFieldWithDecimalLimitable: DefaultTextFieldWithDecimalLimitable(), cancellable: cancellable), cancellable: cancellable)
+        let mainViewController = MainViewControllerSwiftUI(viewModel: MainViewModel(textFieldWithDecimalLimitable: DefaultTextFieldWithDecimalLimitable(), cancellable: cancellable), cancellable: cancellable)
         self.addChild(mainViewController)
         self.view.addSubview(mainViewController.view)
         mainViewController.view.translatesAutoresizingMaskIntoConstraints = false

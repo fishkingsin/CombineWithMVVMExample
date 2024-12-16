@@ -14,6 +14,7 @@ struct BottomSheetViewListItem: View {
         HStack {
             Text(item.name)
             Text(item.role)
+            Text("\(item.id.uuidString)")
             Rectangle()
                 .fill(item.avatarBackgroundColor.toSUIColor)
                 .frame(width: 10, height: 10)

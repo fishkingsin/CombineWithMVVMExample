@@ -17,48 +17,48 @@ import Foundation
 import UIKit
 import Combine
 import SwiftUI
-class MainViewController<ViewModel>: UIViewController where ViewModel: MainViewModelType {
-    var textField: UITextField = {
-       let view = UITextField()
-        view.placeholder = "Enter Text"
-        var bottomLine = CALayer()
-        bottomLine.frame = CGRect(x: 0.0, y: view.frame.height - 1, width: view.frame.width, height: 1.0)
-        bottomLine.backgroundColor = UIColor.black.cgColor
-        view.borderStyle = .none
-        view.keyboardType = .decimalPad
-        view.backgroundColor = .darkGray
-        view.layer.addSublayer(bottomLine)
-        view.textColor = .white
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    var switch1: UISwitch = {
-       let view = UISwitch()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    var switch2: UISwitch = {
-       let view = UISwitch()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    var switch3: UISwitch = {
-       let view = UISwitch()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    var button: UIButton = {
-       let view = UIButton()
-        view.setTitleColor(.blue, for: .normal)
-        view.setTitleColor(.lightGray, for: .disabled)
-        view.setTitle("SHOW BOTTOM SHEET", for: .normal)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
+class MainViewControllerSwiftUI<ViewModel> : UIHostingController<MainView<ViewModel>> where ViewModel: MainViewModelType {
+//    var textField: UITextField = {
+//       let view = UITextField()
+//        view.placeholder = "Enter Text"
+//        var bottomLine = CALayer()
+//        bottomLine.frame = CGRect(x: 0.0, y: view.frame.height - 1, width: view.frame.width, height: 1.0)
+//        bottomLine.backgroundColor = UIColor.black.cgColor
+//        view.borderStyle = .none
+//        view.keyboardType = .decimalPad
+//        view.backgroundColor = .darkGray
+//        view.layer.addSublayer(bottomLine)
+//        view.textColor = .white
+//        view.translatesAutoresizingMaskIntoConstraints = false
+//        return view
+//    }()
+//    
+//    var switch1: UISwitch = {
+//       let view = UISwitch()
+//        view.translatesAutoresizingMaskIntoConstraints = false
+//        return view
+//    }()
+//    
+//    var switch2: UISwitch = {
+//       let view = UISwitch()
+//        view.translatesAutoresizingMaskIntoConstraints = false
+//        return view
+//    }()
+//    
+//    var switch3: UISwitch = {
+//       let view = UISwitch()
+//        view.translatesAutoresizingMaskIntoConstraints = false
+//        return view
+//    }()
+//    
+//    var button: UIButton = {
+//       let view = UIButton()
+//        view.setTitleColor(.blue, for: .normal)
+//        view.setTitleColor(.lightGray, for: .disabled)
+//        view.setTitle("SHOW BOTTOM SHEET", for: .normal)
+//        view.translatesAutoresizingMaskIntoConstraints = false
+//        return view
+//    }()
     
     /// Dimension and Size
     private enum Dimen {
@@ -71,19 +71,19 @@ class MainViewController<ViewModel>: UIViewController where ViewModel: MainViewM
     
     convenience init(viewModel: ViewModel, cancellable: Set<AnyCancellable>) {
         
-        self.init(nibName: nil, bundle: nil)
+        self.init(rootView: MainView(viewModel: viewModel))
         self.viewModel = viewModel
         self.cancellable = cancellable
     }
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    override init(rootView: MainView<ViewModel>) {
+        super.init(rootView: rootView)
     }
+ 
     
-    required init?(coder: NSCoder) {
+    @MainActor @preconcurrency required dynamic init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     
     deinit {
         cancellable.removeAll(keepingCapacity: false)
@@ -99,12 +99,12 @@ class MainViewController<ViewModel>: UIViewController where ViewModel: MainViewM
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationBar()
-        setupViewsAndConstraints()
-        setupLayout()
-        setupLocalization()
+//        setupNavigationBar()
+//        setupViewsAndConstraints()
+//        setupLayout()
+//        setupLocalization()
         bindViewModel()
-        viewModel.inputs.viewDidLoad()
+//        viewModel.inputs.viewDidLoad()
     }
     
     public override func viewWillAppear(_ animated: Bool) {
@@ -131,36 +131,36 @@ class MainViewController<ViewModel>: UIViewController where ViewModel: MainViewM
         
     }
     
-    private func setupViewsAndConstraints() {
-        self.view.backgroundColor = .white
-        let scrollView = UIScrollView()
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.spacing = 8
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.addArrangedSubview(textField)
-        stackView.addArrangedSubview(switch1)
-        stackView.addArrangedSubview(switch2)
-        stackView.addArrangedSubview(switch3)
-        stackView.addArrangedSubview(button)
-        
-        scrollView.addSubview(stackView)
-        view.addSubview(scrollView)
-        
-        
-        
-        NSLayoutConstraint.activate([
-            stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -32),
-            stackView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            stackView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor),
-            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-        ])
-    }
+//    private func setupViewsAndConstraints() {
+//        self.view.backgroundColor = .white
+//        let scrollView = UIScrollView()
+//        scrollView.translatesAutoresizingMaskIntoConstraints = false
+//        
+//        let stackView = UIStackView()
+//        stackView.axis = .vertical
+//        stackView.spacing = 8
+//        stackView.translatesAutoresizingMaskIntoConstraints = false
+//        stackView.addArrangedSubview(textField)
+//        stackView.addArrangedSubview(switch1)
+//        stackView.addArrangedSubview(switch2)
+//        stackView.addArrangedSubview(switch3)
+//        stackView.addArrangedSubview(button)
+//        
+//        scrollView.addSubview(stackView)
+//        view.addSubview(scrollView)
+//        
+//        
+//        
+//        NSLayoutConstraint.activate([
+//            stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -32),
+//            stackView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+//            stackView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor),
+//            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+//            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+//            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+//            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+//        ])
+//    }
     
     private func setupLayout() {
         // TODO: setup colors, textColors, backgroundColors, images
@@ -176,7 +176,7 @@ class MainViewController<ViewModel>: UIViewController where ViewModel: MainViewM
             guard self != nil else { return }
             debugPrint("text update \(text)")
         }.store(in: &cancellable)
-    
+        /*
         button.publisher(for: .touchUpInside).sink { [weak self] _ in
             guard let self = self else { return }
             self.viewModel.inputs.onButtonClick()
@@ -286,7 +286,7 @@ class MainViewController<ViewModel>: UIViewController where ViewModel: MainViewM
         
         viewModel
             .outputs
-            .enableButtonPublisher
+            .enableButton
             .receive(on: DispatchQueue.main)
             .sink { [weak self] enabled in
                 guard let self = self else { return }
@@ -304,7 +304,7 @@ class MainViewController<ViewModel>: UIViewController where ViewModel: MainViewM
                 self.presentPanModal(MySelectionBottomSheet(viewModel: self.viewModel))
             }.store(in: &cancellable)
         
-        
+        */
 
     }
 

@@ -8,7 +8,7 @@
 import SwiftUI
 import Combine
 
-struct MainView<ViewModel>: View where ViewModel: MainViewModel<DefaultTextFieldWithDecimalLimitable> {
+struct MainView<ViewModel>: View where ViewModel: MainViewModelType {
     
     @ObservedObject var viewModel: ViewModel
     
@@ -20,16 +20,42 @@ struct MainView<ViewModel>: View where ViewModel: MainViewModel<DefaultTextField
         VStack {
             CharacterLimitedTextField(text: viewModel.outputs.textOnBinding)
             
+            CharacterLimitedTextFieldPublisherWrapper(inputs: viewModel.outputs.textPublisher, onValueChange: viewModel.inputs.setText)
+                
+            
             Toggle("enable 1", isOn: viewModel.outputs.switch1ValueOnBinding).disabled(!viewModel.outputs.switch1Enabled)
             Toggle("enable 1", isOn: viewModel.outputs.switch2ValueOnBinding).disabled(!viewModel.outputs.switch2Enabled)
             Toggle("enable 1", isOn: viewModel.outputs.switch3ValueOnBinding).disabled(!viewModel.outputs.switch3Enabled)
             Button("Show Sheet", action: viewModel.inputs.onButtonClick)
                 .disabled(!viewModel.outputs.enableButton)
-                .sheet(isPresented: viewModel.outputs.showBottomSheetOnBinding) { BottomSheetView(selectedIds: viewModel.outputs.selectedIdsOnBinding, options: viewModel.outputs.options2, onDismissClick: viewModel.inputs.onDismissClick) }
+                .sheet(isPresented: viewModel.outputs.showBottomSheetOnBinding) {
+                    BottomSheetView(
+                        selectedIds: viewModel.outputs.selectedIdsOnBinding,
+                        options: viewModel.outputs.options2,
+                        onDismissClick: viewModel.inputs.onDismissClick) }
             
         }
         
         .padding()
+    }
+}
+
+struct CharacterLimitedTextFieldPublisherWrapper: View {
+    @State var text: String = ""
+    var inputs: AnyPublisher<String, Never>
+    var onValueChange: (String) -> Void
+    
+    var body: some View {
+        CharacterLimitedTextField(text: .init(get: {
+            text
+        }, set: { newValue in
+            text = newValue
+        }))
+        .onChange(of: text) {
+            onValueChange($0)
+        }.onReceive(inputs) {
+            text = $0
+        }
     }
 }
 

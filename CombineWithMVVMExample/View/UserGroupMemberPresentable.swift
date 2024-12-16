@@ -8,8 +8,14 @@
 import UIKit
 
 public struct UserGroupMemberPresentable: Equatable, Hashable, Identifiable {
-    let _id = UUID()
-    public var id: UUID  = UUID()
+    
+    public var id: UUID = { UUID() }()
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+        hasher.combine(role)
+        hasher.combine(avatarBackgroundColor)
+    }
     
 
     let name: String
