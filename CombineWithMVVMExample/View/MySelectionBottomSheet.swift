@@ -10,10 +10,10 @@ import PanModal
 import UIKit
 import Combine
 
-class MySelectionBottomSheet: UITableViewController {
+class MySelectionBottomSheet<ViewModel> : UITableViewController where ViewModel: MainViewModelType {
     private var cancellable = Set<AnyCancellable>()
-    weak var viewModel: MainViewModelType!
-    init(viewModel: MainViewModelType) {
+    weak var viewModel: ViewModel?
+    init(viewModel: ViewModel?) {
         super.init(nibName: nil, bundle: nil)
         self.viewModel = viewModel
     }
@@ -40,7 +40,10 @@ class MySelectionBottomSheet: UITableViewController {
         super.viewDidLoad()
 
         setupTableView()
-        viewModel?.outputs.options2.sink(receiveValue: { [weak self] values in
+        viewModel?
+            .outputs
+            .options2Publisher
+            .sink(receiveValue: { [weak self] values in
             guard let self = self else { return }
             self._members = values
             self.tableView.reloadData()

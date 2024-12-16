@@ -14,9 +14,17 @@
 		1A78C1CC288528A700D002BA /* UserGroupHeaderPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A78C1CB288528A600D002BA /* UserGroupHeaderPresentable.swift */; };
 		1A78C1CE288528BD00D002BA /* UserGroupHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A78C1CD288528BD00D002BA /* UserGroupHeaderView.swift */; };
 		1A78C1D0288528D300D002BA /* UserGroupMemberPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A78C1CF288528D300D002BA /* UserGroupMemberPresentable.swift */; };
+		1A7C0FF82D0F258A005F9B81 /* View+binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7C0FF72D0F258A005F9B81 /* View+binding.swift */; };
+		1A7C0FFA2D0F264C005F9B81 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7C0FF92D0F264C005F9B81 /* BottomSheetView.swift */; };
+		1A7C0FFC2D0F3DD4005F9B81 /* Selectables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7C0FFB2D0F3DD4005F9B81 /* Selectables.swift */; };
+		1A7C0FFE2D0F3DF2005F9B81 /* BottomSheetViewListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7C0FFD2D0F3DF2005F9B81 /* BottomSheetViewListItem.swift */; };
+		1A7C10002D0F3E0E005F9B81 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7C0FFF2D0F3E0E005F9B81 /* UIColor+Extension.swift */; };
 		1A97BADD28859D2B009F8B2E /* UIControlSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A97BADC28859D2B009F8B2E /* UIControlSubscription.swift */; };
+		1A980E0F2D0B30870049B785 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A980E0E2D0B30870049B785 /* MainView.swift */; };
+		1A980E112D0B37790049B785 /* MainViewController+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A980E102D0B37790049B785 /* MainViewController+SwiftUI.swift */; };
 		1AA3E6602897C0750051195C /* TextFieldWithDecimalLimitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA3E65F2897C0750051195C /* TextFieldWithDecimalLimitable.swift */; };
 		1AA3E6622897D19D0051195C /* DefaultTextFieldWithDecimalLimitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA3E6612897D19D0051195C /* DefaultTextFieldWithDecimalLimitable.swift */; };
+		1ABF5CDF2D10592400CA546A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABF5CDE2D10592400CA546A /* MainViewController.swift */; };
 		1AE5904F2885137D00223B42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE5904E2885137D00223B42 /* AppDelegate.swift */; };
 		1AE590512885137D00223B42 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE590502885137D00223B42 /* SceneDelegate.swift */; };
 		1AE590532885137D00223B42 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE590522885137D00223B42 /* ViewController.swift */; };
@@ -54,9 +62,17 @@
 		1A78C1CB288528A600D002BA /* UserGroupHeaderPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGroupHeaderPresentable.swift; sourceTree = "<group>"; };
 		1A78C1CD288528BD00D002BA /* UserGroupHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGroupHeaderView.swift; sourceTree = "<group>"; };
 		1A78C1CF288528D300D002BA /* UserGroupMemberPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGroupMemberPresentable.swift; sourceTree = "<group>"; };
+		1A7C0FF72D0F258A005F9B81 /* View+binding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+binding.swift"; sourceTree = "<group>"; };
+		1A7C0FF92D0F264C005F9B81 /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
+		1A7C0FFB2D0F3DD4005F9B81 /* Selectables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selectables.swift; sourceTree = "<group>"; };
+		1A7C0FFD2D0F3DF2005F9B81 /* BottomSheetViewListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewListItem.swift; sourceTree = "<group>"; };
+		1A7C0FFF2D0F3E0E005F9B81 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		1A97BADC28859D2B009F8B2E /* UIControlSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIControlSubscription.swift; sourceTree = "<group>"; };
+		1A980E0E2D0B30870049B785 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		1A980E102D0B37790049B785 /* MainViewController+SwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+SwiftUI.swift"; sourceTree = "<group>"; };
 		1AA3E65F2897C0750051195C /* TextFieldWithDecimalLimitable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithDecimalLimitable.swift; sourceTree = "<group>"; };
 		1AA3E6612897D19D0051195C /* DefaultTextFieldWithDecimalLimitable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTextFieldWithDecimalLimitable.swift; sourceTree = "<group>"; };
+		1ABF5CDE2D10592400CA546A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1AE5904B2885137D00223B42 /* CombineWithMVVMExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CombineWithMVVMExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AE5904E2885137D00223B42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1AE590502885137D00223B42 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +124,11 @@
 				1A78C1CB288528A600D002BA /* UserGroupHeaderPresentable.swift */,
 				1A78C1CD288528BD00D002BA /* UserGroupHeaderView.swift */,
 				1A78C1CF288528D300D002BA /* UserGroupMemberPresentable.swift */,
+				1A980E0E2D0B30870049B785 /* MainView.swift */,
+				1A7C0FF92D0F264C005F9B81 /* BottomSheetView.swift */,
+				1A7C0FFB2D0F3DD4005F9B81 /* Selectables.swift */,
+				1A7C0FFD2D0F3DF2005F9B81 /* BottomSheetViewListItem.swift */,
+				1A7C0FFF2D0F3E0E005F9B81 /* UIColor+Extension.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -149,6 +170,8 @@
 				1AE5904E2885137D00223B42 /* AppDelegate.swift */,
 				1AE590502885137D00223B42 /* SceneDelegate.swift */,
 				1AE590522885137D00223B42 /* ViewController.swift */,
+				1A980E102D0B37790049B785 /* MainViewController+SwiftUI.swift */,
+				1ABF5CDE2D10592400CA546A /* MainViewController.swift */,
 				1AE590542885137D00223B42 /* Main.storyboard */,
 				1AE590572885138100223B42 /* Assets.xcassets */,
 				1AE590592885138100223B42 /* LaunchScreen.storyboard */,
@@ -181,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				1AE59083288513D500223B42 /* MainViewModel.swift */,
+				1A7C0FF72D0F258A005F9B81 /* View+binding.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -253,7 +277,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1340;
-				LastUpgradeCheck = 1340;
+				LastUpgradeCheck = 1620;
 				TargetAttributes = {
 					1AE5904A2885137D00223B42 = {
 						CreatedOnToolsVersion = 13.4.1;
@@ -325,17 +349,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AA3E6602897C0750051195C /* TextFieldWithDecimalLimitable.swift in Sources */,
+				1A7C10002D0F3E0E005F9B81 /* UIColor+Extension.swift in Sources */,
+				1A980E0F2D0B30870049B785 /* MainView.swift in Sources */,
 				1AA3E6622897D19D0051195C /* DefaultTextFieldWithDecimalLimitable.swift in Sources */,
 				1A78C1D0288528D300D002BA /* UserGroupMemberPresentable.swift in Sources */,
+				1A7C0FF82D0F258A005F9B81 /* View+binding.swift in Sources */,
 				1A78C1CC288528A700D002BA /* UserGroupHeaderPresentable.swift in Sources */,
 				1AE59085288513D500223B42 /* MainViewModel.swift in Sources */,
 				1A78C1CA2885288700D002BA /* UserGroupMemberCell.swift in Sources */,
+				1A980E112D0B37790049B785 /* MainViewController+SwiftUI.swift in Sources */,
+				1A7C0FFA2D0F264C005F9B81 /* BottomSheetView.swift in Sources */,
+				1A7C0FFE2D0F3DF2005F9B81 /* BottomSheetViewListItem.swift in Sources */,
+				1A7C0FFC2D0F3DD4005F9B81 /* Selectables.swift in Sources */,
 				1A78C1C7288524FD00D002BA /* MySelectionBottomSheet.swift in Sources */,
 				1A78C1CE288528BD00D002BA /* UserGroupHeaderView.swift in Sources */,
 				1AE590532885137D00223B42 /* ViewController.swift in Sources */,
 				1AE5904F2885137D00223B42 /* AppDelegate.swift in Sources */,
 				1A97BADD28859D2B009F8B2E /* UIControlSubscription.swift in Sources */,
 				1AE590512885137D00223B42 /* SceneDelegate.swift in Sources */,
+				1ABF5CDF2D10592400CA546A /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +460,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -488,6 +521,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -565,7 +599,6 @@
 		1AE590792885138200223B42 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -585,7 +618,6 @@
 		1AE5907A2885138200223B42 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -605,7 +637,6 @@
 		1AE5907C2885138200223B42 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CWZ27838R7;
@@ -623,7 +654,6 @@
 		1AE5907D2885138200223B42 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CWZ27838R7;

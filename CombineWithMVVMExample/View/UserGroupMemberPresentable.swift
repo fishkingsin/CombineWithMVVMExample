@@ -7,7 +7,16 @@
 
 import UIKit
 
-public struct UserGroupMemberPresentable: Equatable, Hashable {
+public struct UserGroupMemberPresentable: Equatable, Hashable, Identifiable {
+    
+    public var id: UUID = { UUID() }()
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+        hasher.combine(role)
+        hasher.combine(avatarBackgroundColor)
+    }
+    
 
     let name: String
     let role: String
