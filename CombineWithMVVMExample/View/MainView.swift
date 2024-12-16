@@ -40,39 +40,6 @@ struct MainView<ViewModel>: View where ViewModel: MainViewModelType {
     }
 }
 
-struct CharacterLimitedTextFieldPublisherWrapper: View {
-    @State var text: String = ""
-    var inputs: AnyPublisher<String, Never>
-    var onValueChange: (String) -> Void
-    
-    var body: some View {
-        CharacterLimitedTextField(text: .init(get: {
-            text
-        }, set: { newValue in
-            text = newValue
-        }))
-        .onChange(of: text) {
-            onValueChange($0)
-        }.onReceive(inputs) {
-            text = $0
-        }
-    }
-}
-
-
-struct CharacterLimitedTextField: View {
-    @Binding var text: String
-    let characterLimit: Int = 5
-    var body: some View {
-        TextField("Placeholder", text: $text)
-            .onChange(of: text) { newValue in
-                if newValue.count > characterLimit {
-                    text = String(newValue.prefix(characterLimit))
-                }
-            }
-    }
-}
-
 #Preview {
     MainView(viewModel: MainViewModel(textFieldWithDecimalLimitable: DefaultTextFieldWithDecimalLimitable(), cancellable: Set<AnyCancellable>()))
 }

@@ -34,13 +34,6 @@ struct BottomSheetView: View {
                         .onTapGesture {
                             isSelected.wrappedValue.toggle()
                         }
-                    //                HStack {
-                    //                    Text(item.name)
-                    //                        .font(.title)
-                    //                    Spacer()
-                    //                    Toggle("", isOn: isSelected)
-                    //                        .labelsHidden()
-                    //                }
                 }
             }
             Button("Dismiss", action: onDismissClick)
