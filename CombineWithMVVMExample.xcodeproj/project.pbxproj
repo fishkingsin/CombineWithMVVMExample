@@ -7,27 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A31738C2D10FB800013287D /* UITextViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A31738B2D10FB7E0013287D /* UITextViewWrapper.swift */; };
+		1A31738F2D10FBBB0013287D /* TextFieldLimitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A31738E2D10FBB90013287D /* TextFieldLimitable.swift */; };
 		1A3A8A9728863C75009A2C5F /* XCTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3A8A9528863C4F009A2C5F /* XCTestCase.swift */; };
 		1A78C1C5288524DF00D002BA /* PanModal in Frameworks */ = {isa = PBXBuildFile; productRef = 1A78C1C4288524DF00D002BA /* PanModal */; };
-		1A78C1C7288524FD00D002BA /* MySelectionBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A78C1C6288524FD00D002BA /* MySelectionBottomSheet.swift */; };
-		1A78C1CA2885288700D002BA /* UserGroupMemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A78C1C92885288700D002BA /* UserGroupMemberCell.swift */; };
 		1A78C1CC288528A700D002BA /* UserGroupHeaderPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A78C1CB288528A600D002BA /* UserGroupHeaderPresentable.swift */; };
-		1A78C1CE288528BD00D002BA /* UserGroupHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A78C1CD288528BD00D002BA /* UserGroupHeaderView.swift */; };
 		1A78C1D0288528D300D002BA /* UserGroupMemberPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A78C1CF288528D300D002BA /* UserGroupMemberPresentable.swift */; };
 		1A7C0FFA2D0F264C005F9B81 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7C0FF92D0F264C005F9B81 /* BottomSheetView.swift */; };
 		1A7C0FFC2D0F3DD4005F9B81 /* Selectables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7C0FFB2D0F3DD4005F9B81 /* Selectables.swift */; };
 		1A7C0FFE2D0F3DF2005F9B81 /* BottomSheetViewListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7C0FFD2D0F3DF2005F9B81 /* BottomSheetViewListItem.swift */; };
 		1A7C10002D0F3E0E005F9B81 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7C0FFF2D0F3E0E005F9B81 /* UIColor+Extension.swift */; };
-		1A97BADD28859D2B009F8B2E /* UIControlSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A97BADC28859D2B009F8B2E /* UIControlSubscription.swift */; };
 		1A980E0F2D0B30870049B785 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A980E0E2D0B30870049B785 /* MainView.swift */; };
 		1A980E112D0B37790049B785 /* MainViewController+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A980E102D0B37790049B785 /* MainViewController+SwiftUI.swift */; };
-		1AA3E6602897C0750051195C /* TextFieldWithDecimalLimitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA3E65F2897C0750051195C /* TextFieldWithDecimalLimitable.swift */; };
 		1AA3E6622897D19D0051195C /* DefaultTextFieldWithDecimalLimitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA3E6612897D19D0051195C /* DefaultTextFieldWithDecimalLimitable.swift */; };
 		1ABF555C2D105D28005D5B68 /* CharacterLimitedTextFieldPublisherWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABF555B2D105D27005D5B68 /* CharacterLimitedTextFieldPublisherWrapper.swift */; };
 		1ABF555E2D105D3B005D5B68 /* CharacterLimitedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABF555D2D105D3A005D5B68 /* CharacterLimitedTextField.swift */; };
 		1ABF55602D105DC7005D5B68 /* Combine+ignoreNil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABF555F2D105DC4005D5B68 /* Combine+ignoreNil.swift */; };
 		1ABF55622D105DDC005D5B68 /* MainViewModelContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABF55612D105DD9005D5B68 /* MainViewModelContract.swift */; };
-		1ABF5CDF2D10592400CA546A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABF5CDE2D10592400CA546A /* MainViewController.swift */; };
 		1AE5904F2885137D00223B42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE5904E2885137D00223B42 /* AppDelegate.swift */; };
 		1AE590512885137D00223B42 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE590502885137D00223B42 /* SceneDelegate.swift */; };
 		1AE590532885137D00223B42 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE590522885137D00223B42 /* ViewController.swift */; };
@@ -59,26 +55,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A31738B2D10FB7E0013287D /* UITextViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewWrapper.swift; sourceTree = "<group>"; };
+		1A31738E2D10FBB90013287D /* TextFieldLimitable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldLimitable.swift; sourceTree = "<group>"; };
 		1A3A8A9528863C4F009A2C5F /* XCTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestCase.swift; sourceTree = "<group>"; };
-		1A78C1C6288524FD00D002BA /* MySelectionBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySelectionBottomSheet.swift; sourceTree = "<group>"; };
-		1A78C1C92885288700D002BA /* UserGroupMemberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGroupMemberCell.swift; sourceTree = "<group>"; };
 		1A78C1CB288528A600D002BA /* UserGroupHeaderPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGroupHeaderPresentable.swift; sourceTree = "<group>"; };
-		1A78C1CD288528BD00D002BA /* UserGroupHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGroupHeaderView.swift; sourceTree = "<group>"; };
 		1A78C1CF288528D300D002BA /* UserGroupMemberPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGroupMemberPresentable.swift; sourceTree = "<group>"; };
 		1A7C0FF92D0F264C005F9B81 /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 		1A7C0FFB2D0F3DD4005F9B81 /* Selectables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selectables.swift; sourceTree = "<group>"; };
 		1A7C0FFD2D0F3DF2005F9B81 /* BottomSheetViewListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewListItem.swift; sourceTree = "<group>"; };
 		1A7C0FFF2D0F3E0E005F9B81 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
-		1A97BADC28859D2B009F8B2E /* UIControlSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIControlSubscription.swift; sourceTree = "<group>"; };
 		1A980E0E2D0B30870049B785 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		1A980E102D0B37790049B785 /* MainViewController+SwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+SwiftUI.swift"; sourceTree = "<group>"; };
-		1AA3E65F2897C0750051195C /* TextFieldWithDecimalLimitable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithDecimalLimitable.swift; sourceTree = "<group>"; };
 		1AA3E6612897D19D0051195C /* DefaultTextFieldWithDecimalLimitable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTextFieldWithDecimalLimitable.swift; sourceTree = "<group>"; };
 		1ABF555B2D105D27005D5B68 /* CharacterLimitedTextFieldPublisherWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterLimitedTextFieldPublisherWrapper.swift; sourceTree = "<group>"; };
 		1ABF555D2D105D3A005D5B68 /* CharacterLimitedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterLimitedTextField.swift; sourceTree = "<group>"; };
 		1ABF555F2D105DC4005D5B68 /* Combine+ignoreNil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+ignoreNil.swift"; sourceTree = "<group>"; };
 		1ABF55612D105DD9005D5B68 /* MainViewModelContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModelContract.swift; sourceTree = "<group>"; };
-		1ABF5CDE2D10592400CA546A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1AE5904B2885137D00223B42 /* CombineWithMVVMExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CombineWithMVVMExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AE5904E2885137D00223B42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1AE590502885137D00223B42 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -122,31 +114,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A31738D2D10FBAF0013287D /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				1A31738E2D10FBB90013287D /* TextFieldLimitable.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		1A78C1C82885287800D002BA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1A980E0E2D0B30870049B785 /* MainView.swift */,
+				1A31738B2D10FB7E0013287D /* UITextViewWrapper.swift */,
 				1ABF555D2D105D3A005D5B68 /* CharacterLimitedTextField.swift */,
 				1ABF555B2D105D27005D5B68 /* CharacterLimitedTextFieldPublisherWrapper.swift */,
-				1A78C1C6288524FD00D002BA /* MySelectionBottomSheet.swift */,
-				1A78C1C92885288700D002BA /* UserGroupMemberCell.swift */,
 				1A78C1CB288528A600D002BA /* UserGroupHeaderPresentable.swift */,
-				1A78C1CD288528BD00D002BA /* UserGroupHeaderView.swift */,
 				1A78C1CF288528D300D002BA /* UserGroupMemberPresentable.swift */,
-				1A980E0E2D0B30870049B785 /* MainView.swift */,
 				1A7C0FF92D0F264C005F9B81 /* BottomSheetView.swift */,
 				1A7C0FFB2D0F3DD4005F9B81 /* Selectables.swift */,
 				1A7C0FFD2D0F3DF2005F9B81 /* BottomSheetViewListItem.swift */,
 				1A7C0FFF2D0F3E0E005F9B81 /* UIColor+Extension.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		1AA3E65E2897C06B0051195C /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-				1AA3E65F2897C0750051195C /* TextFieldWithDecimalLimitable.swift */,
-			);
-			path = Protocol;
 			sourceTree = "<group>";
 		};
 		1AE590422885137D00223B42 = {
@@ -172,20 +162,18 @@
 		1AE5904D2885137D00223B42 /* CombineWithMVVMExample */ = {
 			isa = PBXGroup;
 			children = (
-				1AA3E65E2897C06B0051195C /* Protocol */,
+				1AA3E6612897D19D0051195C /* DefaultTextFieldWithDecimalLimitable.swift */,
+				1A31738D2D10FBAF0013287D /* Protocol */,
 				1A78C1C82885287800D002BA /* View */,
 				1AE59081288513AE00223B42 /* ViewModel */,
 				1AE5904E2885137D00223B42 /* AppDelegate.swift */,
 				1AE590502885137D00223B42 /* SceneDelegate.swift */,
 				1AE590522885137D00223B42 /* ViewController.swift */,
 				1A980E102D0B37790049B785 /* MainViewController+SwiftUI.swift */,
-				1ABF5CDE2D10592400CA546A /* MainViewController.swift */,
 				1AE590542885137D00223B42 /* Main.storyboard */,
 				1AE590572885138100223B42 /* Assets.xcassets */,
 				1AE590592885138100223B42 /* LaunchScreen.storyboard */,
 				1AE5905C2885138100223B42 /* Info.plist */,
-				1A97BADC28859D2B009F8B2E /* UIControlSubscription.swift */,
-				1AA3E6612897D19D0051195C /* DefaultTextFieldWithDecimalLimitable.swift */,
 			);
 			path = CombineWithMVVMExample;
 			sourceTree = "<group>";
@@ -357,7 +345,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AA3E6602897C0750051195C /* TextFieldWithDecimalLimitable.swift in Sources */,
 				1A7C10002D0F3E0E005F9B81 /* UIColor+Extension.swift in Sources */,
 				1A980E0F2D0B30870049B785 /* MainView.swift in Sources */,
 				1AA3E6622897D19D0051195C /* DefaultTextFieldWithDecimalLimitable.swift in Sources */,
@@ -366,20 +353,17 @@
 				1A78C1CC288528A700D002BA /* UserGroupHeaderPresentable.swift in Sources */,
 				1AE59085288513D500223B42 /* MainViewModel.swift in Sources */,
 				1ABF55622D105DDC005D5B68 /* MainViewModelContract.swift in Sources */,
-				1A78C1CA2885288700D002BA /* UserGroupMemberCell.swift in Sources */,
 				1A980E112D0B37790049B785 /* MainViewController+SwiftUI.swift in Sources */,
 				1A7C0FFA2D0F264C005F9B81 /* BottomSheetView.swift in Sources */,
 				1ABF55602D105DC7005D5B68 /* Combine+ignoreNil.swift in Sources */,
 				1ABF555E2D105D3B005D5B68 /* CharacterLimitedTextField.swift in Sources */,
 				1A7C0FFE2D0F3DF2005F9B81 /* BottomSheetViewListItem.swift in Sources */,
 				1A7C0FFC2D0F3DD4005F9B81 /* Selectables.swift in Sources */,
-				1A78C1C7288524FD00D002BA /* MySelectionBottomSheet.swift in Sources */,
-				1A78C1CE288528BD00D002BA /* UserGroupHeaderView.swift in Sources */,
 				1AE590532885137D00223B42 /* ViewController.swift in Sources */,
 				1AE5904F2885137D00223B42 /* AppDelegate.swift in Sources */,
-				1A97BADD28859D2B009F8B2E /* UIControlSubscription.swift in Sources */,
 				1AE590512885137D00223B42 /* SceneDelegate.swift in Sources */,
-				1ABF5CDF2D10592400CA546A /* MainViewController.swift in Sources */,
+				1A31738F2D10FBBB0013287D /* TextFieldLimitable.swift in Sources */,
+				1A31738C2D10FB800013287D /* UITextViewWrapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

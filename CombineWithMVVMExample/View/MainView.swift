@@ -11,13 +11,18 @@ import Combine
 struct MainView<ViewModel>: View where ViewModel: MainViewModelType {
     
     @ObservedObject var viewModel: ViewModel
+    @State var selectedRange: NSRange
     
     init(viewModel: @autoclosure @escaping () -> ViewModel) {
         self._viewModel = ObservedObject(wrappedValue: viewModel())
+        self.selectedRange = NSRange()
     }
     
     var body: some View {
         VStack {
+            UIKitTextView("UIKitTextView", text: viewModel.outputs.textOnBinding, selectedRange: $selectedRange) {
+                debugPrint("UIKitTextView: \(viewModel.outputs.textOnBinding.wrappedValue)")
+            }
             CharacterLimitedTextField(text: viewModel.outputs.textOnBinding)
             
             CharacterLimitedTextFieldPublisherWrapper(inputs: viewModel.outputs.textPublisher, onValueChange: viewModel.inputs.setText)

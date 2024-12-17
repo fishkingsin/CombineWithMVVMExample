@@ -7,8 +7,9 @@
 
 import Foundation
 import UIKit
+
 // default behaviour
-class DefaultTextFieldWithDecimalLimitable: TextFieldWithDecimalLimitable {
+class DefaultTextFieldWithDecimalLimitable: TextFieldLimitable {
     var cursorPosition: Int? = 0
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

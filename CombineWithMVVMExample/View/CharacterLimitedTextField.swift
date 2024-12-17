@@ -10,7 +10,13 @@ import Combine
 
 struct CharacterLimitedTextField: View {
     @Binding var text: String
-    let characterLimit: Int = 5
+    let characterLimit: Int
+    
+    init(text: Binding<String>, characterLimit: Int = 15) {
+        self._text = text
+        self.characterLimit = characterLimit
+    }
+    
     var body: some View {
         TextField("Placeholder", text: $text)
             .onChange(of: text) { newValue in
