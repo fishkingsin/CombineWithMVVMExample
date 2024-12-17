@@ -202,6 +202,7 @@
 				1ABF55612D105DD9005D5B68 /* MainViewModelContract.swift */,
 				1ABF555F2D105DC4005D5B68 /* Combine+ignoreNil.swift */,
 				1AE59083288513D500223B42 /* MainViewModel.swift */,
+				1A7C0FF72D0F258A005F9B81 /* View+binding.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -350,6 +351,7 @@
 				1AA3E6622897D19D0051195C /* DefaultTextFieldWithDecimalLimitable.swift in Sources */,
 				1ABF555C2D105D28005D5B68 /* CharacterLimitedTextFieldPublisherWrapper.swift in Sources */,
 				1A78C1D0288528D300D002BA /* UserGroupMemberPresentable.swift in Sources */,
+				1A7C0FF82D0F258A005F9B81 /* View+binding.swift in Sources */,
 				1A78C1CC288528A700D002BA /* UserGroupHeaderPresentable.swift in Sources */,
 				1AE59085288513D500223B42 /* MainViewModel.swift in Sources */,
 				1ABF55622D105DDC005D5B68 /* MainViewModelContract.swift in Sources */,

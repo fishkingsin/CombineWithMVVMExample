@@ -92,7 +92,7 @@ public protocol MainViewModelType: ObservableObject {
 class MainViewModel:
     MainViewModelType,
     MainViewModelInputs,
-    MainViewModelOutputs {
+    MainViewModelOutputs where TextFieldLimitable: TextFieldWithDecimalLimitable {
     
     
     

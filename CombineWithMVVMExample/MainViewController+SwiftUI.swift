@@ -18,7 +18,6 @@ import UIKit
 import Combine
 import SwiftUI
 class MainViewControllerSwiftUI<ViewModel> : UIHostingController<MainView<ViewModel>> where ViewModel: MainViewModelType {
-
     
     /// Dimension and Size
     private enum Dimen {
