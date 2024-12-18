@@ -92,7 +92,7 @@ public protocol MainViewModelType: ObservableObject {
 class MainViewModel:
     MainViewModelType,
     MainViewModelInputs,
-    MainViewModelOutputs where TextFieldLimitable: TextFieldWithDecimalLimitable {
+    MainViewModelOutputs {
     
     
     
@@ -201,10 +201,10 @@ class MainViewModel:
     
     func onButtonClick() {
         showBottomSheet = true
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
-//            guard let self = self else { return }
-            self.getOptions2()
-//        }
+        //        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+        //            guard let self = self else { return }
+        self.getOptions2()
+        //        }
         
     }
     
@@ -212,7 +212,7 @@ class MainViewModel:
         showBottomSheet = false
     }
     
-   
+    
     
     var switch1EnabledPublisher: AnyPublisher<Bool, Never> {
         $text.map { $0 != "" }.eraseToAnyPublisher()
@@ -266,33 +266,35 @@ class MainViewModel:
                 print("enable button \(String(describing: $0.0)) \(String(describing: $0.1)) \(String(describing: $0.2)) \(String(describing: $0.3))")
                 return $0.0 != "" && $0.1 == true && $0.2 == true && $0.3 == true
             }
-            
+        
             .eraseToAnyPublisher()
     }
-
+    
     var cancellable: Set<AnyCancellable>
     /* initialize Some Usecase or AppState */
     
     init(textFieldWithDecimalLimitable: TextFieldLimitable, cancellable: Set<AnyCancellable>) {
         self.textFieldWithDecimalLimitable = textFieldWithDecimalLimitable
         self.cancellable = cancellable
+        
+        // MARK: if you bind published value from publisher
         switch1EnabledPublisher
             .sink(receiveValue: { [weak self] values in
-            guard let self = self else { return }
+                guard let self = self else { return }
                 self.switch1Enabled = values
-        }).store(in: &self.cancellable)
+            }).store(in: &self.cancellable)
         
         switch2EnabledPublisher
             .sink(receiveValue: { [weak self] values in
-            guard let self = self else { return }
+                guard let self = self else { return }
                 self.switch2Enabled = values
-        }).store(in: &self.cancellable)
+            }).store(in: &self.cancellable)
         
         switch3EnabledPublisher
             .sink(receiveValue: { [weak self] values in
-            guard let self = self else { return }
+                guard let self = self else { return }
                 self.switch3Enabled = values
-        }).store(in: &self.cancellable)
+            }).store(in: &self.cancellable)
         
         enableButtonPublisher
             .sink(receiveValue: { [weak self] values in
